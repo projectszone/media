@@ -12,1247 +12,480 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   // contoller
   PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 4, vsync: this);
     return Scaffold(
       backgroundColor: AppTheme.colors.background,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
 // app bar
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Row(
+              children: [
+                SizedBox(
+                  width: 120,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage('images/logo.jpeg'),
+                      radius: 12,
+                      backgroundColor: Colors.transparent,
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'MEDIA',
+                      style: GoogleFonts.lora(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: AppTheme.colors.text),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 50,
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          CupertinoIcons.search_circle,
+                          color: AppTheme.colors.text,
+                          size: 24,
+                        )),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          CupertinoIcons.bell_circle,
+                          color: AppTheme.colors.text,
+                          size: 24,
+                        )),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+
+//sports Tab bar
+            Card(
+              elevation: 5,
+              color: AppTheme.colors.text,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Container(
+                child: TabBar(
+                  indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: AppTheme.colors.appbar),
+                  controller: _tabController,
+                  isScrollable: true,
+                  labelPadding: EdgeInsets.symmetric(horizontal: 17),
+                  tabs: [
+                    Tab(
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundImage: AssetImage('images/football.png'),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text(
+                            'FOOTBALL',
+                            style: GoogleFonts.lora(
+                                color: AppTheme.colors.background,
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Tab(
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundImage:
+                                AssetImage('images/basketball.png'),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text(
+                            'BASKETBALL',
+                            style: GoogleFonts.lora(
+                                color: AppTheme.colors.background,
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Tab(
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundImage: AssetImage('images/baseball.png'),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text(
+                            'BASEBALL',
+                            style: GoogleFonts.lora(
+                                color: AppTheme.colors.background,
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Tab(
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundImage: AssetImage('images/hockey.png'),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text(
+                            'HOCKEY',
+                            style: GoogleFonts.lora(
+                                color: AppTheme.colors.background,
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+// Live matches Card
+            Container(
+              width: double.infinity,
+              height: 180,
+              child: Row(
                 children: [
-                  Text(
-                    'MEDIA',
-                    style: GoogleFonts.lora(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: AppTheme.colors.text),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Stack(children: [
+                      Container(
+                        width: 80,
+                        height: 150,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                                image: AssetImage('images/karim.jpg'),
+                                fit: BoxFit.cover)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'LIVE',
+                              style: GoogleFonts.lora(
+                                  fontSize: 10,
+                                  color: AppTheme.colors.background),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
                   ),
-                  const SizedBox(
-                    width: 150,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Stack(children: [
+                      Container(
+                        width: 80,
+                        height: 150,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                                image: AssetImage('images/messi.jpg'),
+                                fit: BoxFit.cover)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'LIVE',
+                              style: GoogleFonts.lora(
+                                  fontSize: 10,
+                                  color: AppTheme.colors.background),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
                   ),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => ProfileManagement()));
-                      },
-                      icon: Icon(
-                        CupertinoIcons.profile_circled,
-                        color: AppTheme.colors.text,
-                        size: 24,
-                      ))
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Stack(children: [
+                      Container(
+                        width: 80,
+                        height: 150,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                                image: AssetImage('images/ronaldo.jpg'),
+                                fit: BoxFit.cover)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'LIVE',
+                              style: GoogleFonts.lora(
+                                  fontSize: 10,
+                                  color: AppTheme.colors.background),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Stack(children: [
+                      Container(
+                        width: 80,
+                        height: 150,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                                image: AssetImage('images/mbappe.jpg'),
+                                fit: BoxFit.cover)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'LIVE',
+                              style: GoogleFonts.lora(
+                                  fontSize: 10,
+                                  color: AppTheme.colors.background),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
                 ],
               ),
-//page view
-              Container(
-                width: double.infinity,
-                height: 550,
-                child: Stack(
-                  children:[
-                    PageView(
-                    controller: _pageController,
-                    children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/karim.jpg'),
-                              fit: BoxFit.cover)),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 200,
-                          ),
-                          Text('LEAGUE NAME',
-                            style: GoogleFonts.lora(
-                              fontSize: 28,
-                              color: AppTheme.colors.background,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text('LEAGUE DESCRIPTION',
-                            style: GoogleFonts.lora(
-                                fontSize: 18,
-                                color: Colors.tealAccent,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 150,
-                          ),
-                          Container(
-                            height: 40,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: AppTheme.colors.background,
-                                borderRadius: BorderRadius.circular(45),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      color: AppTheme.colors.text
-                                  )
-                                ]
-                            ),
-                            child: Center(
-                              child: Text('Watch Now',
-                                style: GoogleFonts.lora(
-                                    color: AppTheme.colors.appbar,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/messi.jpg'),
-                              fit: BoxFit.fill)),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 200,
-                          ),
-                          Text('LEAGUE NAME',
-                            style: GoogleFonts.lora(
-                                fontSize: 28,
-                                color: AppTheme.colors.background,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text('LEAGUE DESCRIPTION',
-                            style: GoogleFonts.lora(
-                                fontSize: 18,
-                                color: Colors.tealAccent,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 150,
-                          ),
-                          Container(
-                            height: 40,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: AppTheme.colors.background,
-                                borderRadius: BorderRadius.circular(45),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      color: AppTheme.colors.text
-                                  )
-                                ]
-                            ),
-                            child: Center(
-                              child: Text('Watch Now',
-                                style: GoogleFonts.lora(
-                                    color: AppTheme.colors.appbar,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/mbappe.jpg'),
-                              fit: BoxFit.cover)),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 200,
-                          ),
-                          Text('LEAGUE NAME',
-                            style: GoogleFonts.lora(
-                                fontSize: 28,
-                                color: AppTheme.colors.background,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text('LEAGUE DESCRIPTION',
-                            style: GoogleFonts.lora(
-                                fontSize: 18,
-                                color: Colors.tealAccent,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 150,
-                          ),
-                          Container(
-                            height: 40,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: AppTheme.colors.background,
-                                borderRadius: BorderRadius.circular(45),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      color: AppTheme.colors.text
-                                  )
-                                ]
-                            ),
-                            child: Center(
-                              child: Text('Watch Now',
-                                style: GoogleFonts.lora(
-                                    color: AppTheme.colors.appbar,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/ronaldo.jpg'),
-                              fit: BoxFit.fill)),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 200,
-                          ),
-                          Text('LEAGUE NAME',
-                            style: GoogleFonts.lora(
-                                fontSize: 28,
-                                color: AppTheme.colors.background,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text('LEAGUE DESCRIPTION',
-                            style: GoogleFonts.lora(
-                                fontSize: 18,
-                                color: Colors.tealAccent,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 150,
-                          ),
-                          Container(
-                            height: 40,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: AppTheme.colors.background,
-                                borderRadius: BorderRadius.circular(45),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      color: AppTheme.colors.text
-                                  )
-                                ]
-                            ),
-                            child: Center(
-                              child: Text('Watch Now',
-                                style: GoogleFonts.lora(
-                                    color: AppTheme.colors.appbar,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/jordan.jpg'),
-                              fit: BoxFit.cover)),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 200,
-                          ),
-                          Text('LEAGUE NAME',
-                            style: GoogleFonts.lora(
-                                fontSize: 28,
-                                color: AppTheme.colors.background,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text('LEAGUE DESCRIPTION',
-                            style: GoogleFonts.lora(
-                                fontSize: 18,
-                                color: Colors.tealAccent,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 150,
-                          ),
-                          Container(
-                            height: 40,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: AppTheme.colors.background,
-                                borderRadius: BorderRadius.circular(45),
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 2,
-                                      color: AppTheme.colors.text
-                                  )
-                                ]
-                            ),
-                            child: Center(
-                              child: Text('Watch Now',
-                                style: GoogleFonts.lora(
-                                    color: AppTheme.colors.appbar,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ]),
-// indicator now
-                  Container(
-                    alignment: Alignment(0,0.9),
-                    child: SmoothPageIndicator(
-                      controller: _pageController,
-                      count: 5,
-                      effect: WormEffect(
-                        dotHeight: 10,
-                        dotWidth: 10,
-                        activeDotColor: AppTheme.colors.appbar,
-                        dotColor: AppTheme.colors.background,
-                      ),
-                    ),
-                  )
-
-                ]),
-              ),
-//Live & upcoming matches
-            const SizedBox(height: 20),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:[
-                    Row(mainAxisAlignment: MainAxisAlignment.start,
+            ),
+  //tab bar view
+            Expanded(
+                child: TabBarView(
+              controller: _tabController,
+              children: [
+                ListView.builder(
+                  itemCount:1,
+                  itemBuilder: (context,index){
+                  return Card(
+                  color: AppTheme.colors.background,
+                    child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Text('LIVE & UPCOMING MATCHES',style: GoogleFonts.lora(
-                              fontSize: 18,
-                              color: AppTheme.colors.text,
-                              fontWeight: FontWeight.bold
-                          )),
-                        ),
-                      ],
-                    ),
+                        Image(image: AssetImage('images/st2.jpg'),
+                          fit: BoxFit.fill,
 
-                    Row(mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: TextButton(onPressed: (){},
-                            child: Text('SEE ALL',style: GoogleFonts.lora(
-                                fontSize: 14,
-                                color: AppTheme.colors.appbar,
-                                fontWeight: FontWeight.bold
-                            )),
+
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(0.3),
                           ),
-                        ),
-                      ],
-                    ),
-
-                  ]
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('images/st1.jpg'),
-                          fit: BoxFit.fill
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                    Row(
+                                      children: [
+                                        Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                        const SizedBox(width: 200,),
+                                        Text('Football',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         )
-                      ),
-                      child: Stack(
-                        children:[
-                          Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-//Live Container
-                          Container(
-                            width: 50,
-                            height: 20,
-                            color: AppTheme.colors.appbar,
-                            child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                            fontSize: 10,
-                              fontWeight: FontWeight.bold
-                            ),),),
-                          ),
-                          const SizedBox(height: 60,),
-//team logos
-                          Container(width: 60,
-                            child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                              children: const[
-                                CircleAvatar(backgroundColor: Colors.transparent,
-                                    backgroundImage: AssetImage('images/logo.jpeg'),
-                                radius: 12,
-                                ),
-                                SizedBox(width: 5,),
-                                CircleAvatar(backgroundColor: Colors.transparent,
-                                  backgroundImage: AssetImage('images/logo.jpeg'),
-                                  radius: 12,
-                                ),
-                              ],
-                            ),
-                          ),
- // date & time
-                          const SizedBox(height: 10,),
-                          Container(width: 110,
-                            child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text('1 April 2023',style:GoogleFonts.lora(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppTheme.colors.background.withOpacity(0.8),
-                                ) ,),
-                                const SizedBox(width: 5,),
-                                Text('07:00',style:GoogleFonts.lora(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppTheme.colors.background.withOpacity(0.8),
-                                ) ,),
-                              ],
-                            ),
-                          ),
-//teams name
-                          const SizedBox(height: 10,),
-                           Padding(
-                             padding: const EdgeInsets.only(left: 5.0),
-                             child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: AppTheme.colors.background,
-                              ) ,),
-                           ),
-
-// more menu
-
-                        ],
-                    ),
-                          Container(
-                            alignment: Alignment(1,1),
-                            child: Container(
-                              width: 40,
-                              height: 40,
-
-                              child: IconButton(onPressed: (){
-
-                            }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                            ),
-                          ),
-                     ] ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st2.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),child: Stack(
-                        children:[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                      ],
+                    )
+                  );}
+                ),
+                ListView.builder(
+                    itemCount:1,
+                    itemBuilder: (context,index){
+                      return Card(
+                          color: AppTheme.colors.background,
+                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-//Live Container
+                              Image(image: AssetImage('images/st3.jpg'),
+                                fit: BoxFit.fill,
+
+
+                              ),
                               Container(
-                                width: 50,
-                                height: 20,
-                                color: AppTheme.colors.appbar,
-                                child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold
-                                ),),),
-                              ),
-                              const SizedBox(height: 60,),
-//team logos
-                              Container(width: 60,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                  children: const[
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                    SizedBox(width: 5,),
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                  ],
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
                                 ),
-                              ),
-                              // date & time
-                              const SizedBox(height: 10,),
-                              Container(width: 110,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
+                                child: Row(
                                   children: [
-                                    Text('1 April 2023',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
-                                    const SizedBox(width: 5,),
-                                    Text('07:00',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                          Row(
+                                            children: [
+                                              Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                              const SizedBox(width: 200,),
+                                              Text('BasketBall',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
-                              ),
-//teams name
-                              const SizedBox(height: 10,),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5.0),
-                                child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppTheme.colors.background,
-                                ) ,),
-                              ),
-
-// more menu
-
+                              )
                             ],
-                          ),
-                          Container(
-                            alignment: Alignment(1,1),
-                            child: Container(
-                              width: 40,
-                              height: 40,
-
-                              child: IconButton(onPressed: (){
-
-                              }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                            ),
-                          ),
-                        ] ),
-                    ),
-                  ],
+                          )
+                      );}
                 ),
-              ),
-
-//Recent WorldWide Matches
-              const SizedBox(height: 20),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:[
-                    Row(mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Text('RECENT WORLD WIDE MATCHES',style: GoogleFonts.lora(
-                              fontSize: 18,
-                              color: AppTheme.colors.text,
-                              fontWeight: FontWeight.bold
-                          )),
-                        ),
-                      ],
-                    ),
-
-                    Row(mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: TextButton(onPressed: (){},
-                            child: Text('SEE ALL',style: GoogleFonts.lora(
-                                fontSize: 14,
-                                color: AppTheme.colors.appbar,
-                                fontWeight: FontWeight.bold
-                            )),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                  ]
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st1.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),
-                      child: Stack(
-                          children:[
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-//Live Container
-                                Container(
-                                  width: 50,
-                                  height: 20,
-                                  color: AppTheme.colors.appbar,
-                                  child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold
-                                  ),),),
-                                ),
-                                const SizedBox(height: 60,),
-//team logos
-                                Container(width: 60,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                    children: const[
-                                      CircleAvatar(backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage('images/logo.jpeg'),
-                                        radius: 12,
-                                      ),
-                                      SizedBox(width: 5,),
-                                      CircleAvatar(backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage('images/logo.jpeg'),
-                                        radius: 12,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                // date & time
-                                const SizedBox(height: 10,),
-                                Container(width: 110,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text('1 April 2023',style:GoogleFonts.lora(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.colors.background.withOpacity(0.8),
-                                      ) ,),
-                                      const SizedBox(width: 5,),
-                                      Text('07:00',style:GoogleFonts.lora(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.colors.background.withOpacity(0.8),
-                                      ) ,),
-                                    ],
-                                  ),
-                                ),
-//teams name
-                                const SizedBox(height: 10,),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5.0),
-                                  child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppTheme.colors.background,
-                                  ) ,),
-                                ),
-
-// more menu
-
-                              ],
-                            ),
-                            Container(
-                              alignment: Alignment(1,1),
-                              child: Container(
-                                width: 40,
-                                height: 40,
-
-                                child: IconButton(onPressed: (){
-
-                                }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                              ),
-                            ),
-                          ] ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st2.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),child: Stack(
-                        children:[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                ListView.builder(
+                    itemCount:1,
+                    itemBuilder: (context,index){
+                      return Card(
+                          color: AppTheme.colors.background,
+                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-//Live Container
+                              Image(image: AssetImage('images/st5.jpg'),
+                                fit: BoxFit.fill,
+
+
+                              ),
                               Container(
-                                width: 50,
-                                height: 20,
-                                color: AppTheme.colors.appbar,
-                                child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold
-                                ),),),
-                              ),
-                              const SizedBox(height: 60,),
-//team logos
-                              Container(width: 60,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                  children: const[
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                    SizedBox(width: 5,),
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                  ],
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
                                 ),
-                              ),
-                              // date & time
-                              const SizedBox(height: 10,),
-                              Container(width: 110,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
+                                child: Row(
                                   children: [
-                                    Text('1 April 2023',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
-                                    const SizedBox(width: 5,),
-                                    Text('07:00',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                          Row(
+                                            children: [
+                                              Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                              const SizedBox(width: 200,),
+                                              Text('Baseball',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
-                              ),
-//teams name
-                              const SizedBox(height: 10,),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5.0),
-                                child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppTheme.colors.background,
-                                ) ,),
-                              ),
-
-// more menu
-
+                              )
                             ],
-                          ),
-                          Container(
-                            alignment: Alignment(1,1),
-                            child: Container(
-                              width: 40,
-                              height: 40,
-
-                              child: IconButton(onPressed: (){
-
-                              }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                            ),
-                          ),
-                        ] ),
-                    ),
-                  ],
+                          )
+                      );}
                 ),
-              ),
-
-//Womens Football Matches
-              const SizedBox(height: 20),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:[
-                    Row(mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Text('WOMEN FOOTBALL',style: GoogleFonts.lora(
-                              fontSize: 18,
-                              color: AppTheme.colors.text,
-                              fontWeight: FontWeight.bold
-                          )),
-                        ),
-                      ],
-                    ),
-
-                    Row(mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: TextButton(onPressed: (){},
-                            child: Text('SEE ALL',style: GoogleFonts.lora(
-                                fontSize: 14,
-                                color: AppTheme.colors.appbar,
-                                fontWeight: FontWeight.bold
-                            )),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                  ]
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st1.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),
-                      child: Stack(
-                          children:[
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-//Live Container
-                                Container(
-                                  width: 50,
-                                  height: 20,
-                                  color: AppTheme.colors.appbar,
-                                  child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold
-                                  ),),),
-                                ),
-                                const SizedBox(height: 60,),
-//team logos
-                                Container(width: 60,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                    children: const[
-                                      CircleAvatar(backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage('images/logo.jpeg'),
-                                        radius: 12,
-                                      ),
-                                      SizedBox(width: 5,),
-                                      CircleAvatar(backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage('images/logo.jpeg'),
-                                        radius: 12,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                // date & time
-                                const SizedBox(height: 10,),
-                                Container(width: 110,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text('1 April 2023',style:GoogleFonts.lora(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.colors.background.withOpacity(0.8),
-                                      ) ,),
-                                      const SizedBox(width: 5,),
-                                      Text('07:00',style:GoogleFonts.lora(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.colors.background.withOpacity(0.8),
-                                      ) ,),
-                                    ],
-                                  ),
-                                ),
-//teams name
-                                const SizedBox(height: 10,),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5.0),
-                                  child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppTheme.colors.background,
-                                  ) ,),
-                                ),
-
-// more menu
-
-                              ],
-                            ),
-                            Container(
-                              alignment: Alignment(1,1),
-                              child: Container(
-                                width: 40,
-                                height: 40,
-
-                                child: IconButton(onPressed: (){
-
-                                }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                              ),
-                            ),
-                          ] ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st2.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),child: Stack(
-                        children:[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                ListView.builder(
+                    itemCount:1,
+                    itemBuilder: (context,index){
+                      return Card(
+                          color: AppTheme.colors.background,
+                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-//Live Container
+                              Image(image: AssetImage('images/st4.jpg'),
+                                fit: BoxFit.fill,
+
+
+                              ),
                               Container(
-                                width: 50,
-                                height: 20,
-                                color: AppTheme.colors.appbar,
-                                child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold
-                                ),),),
-                              ),
-                              const SizedBox(height: 60,),
-//team logos
-                              Container(width: 60,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                  children: const[
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                    SizedBox(width: 5,),
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                  ],
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
                                 ),
-                              ),
-                              // date & time
-                              const SizedBox(height: 10,),
-                              Container(width: 110,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
+                                child: Row(
                                   children: [
-                                    Text('1 April 2023',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
-                                    const SizedBox(width: 5,),
-                                    Text('07:00',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
-                                  ],
-                                ),
-                              ),
-//teams name
-                              const SizedBox(height: 10,),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5.0),
-                                child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppTheme.colors.background,
-                                ) ,),
-                              ),
-
-// more menu
-
-                            ],
-                          ),
-                          Container(
-                            alignment: Alignment(1,1),
-                            child: Container(
-                              width: 40,
-                              height: 40,
-
-                              child: IconButton(onPressed: (){
-
-                              }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                            ),
-                          ),
-                        ] ),
-                    ),
-                  ],
-                ),
-              ),
-
-//European Leagues Matches
-              const SizedBox(height: 20),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:[
-                    Row(mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Text('EUROPEAN LEAGUE',style: GoogleFonts.lora(
-                              fontSize: 18,
-                              color: AppTheme.colors.text,
-                              fontWeight: FontWeight.bold
-                          )),
-                        ),
-                      ],
-                    ),
-
-                    Row(mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: TextButton(onPressed: (){},
-                            child: Text('SEE ALL',style: GoogleFonts.lora(
-                                fontSize: 14,
-                                color: AppTheme.colors.appbar,
-                                fontWeight: FontWeight.bold
-                            )),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                  ]
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st1.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),
-                      child: Stack(
-                          children:[
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-//Live Container
-                                Container(
-                                  width: 50,
-                                  height: 20,
-                                  color: AppTheme.colors.appbar,
-                                  child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold
-                                  ),),),
-                                ),
-                                const SizedBox(height: 60,),
-//team logos
-                                Container(width: 60,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                    children: const[
-                                      CircleAvatar(backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage('images/logo.jpeg'),
-                                        radius: 12,
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                          Row(
+                                            children: [
+                                              Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                              const SizedBox(width: 200,),
+                                              Text('Hockey',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            ],
+                                          )
+                                        ],
                                       ),
-                                      SizedBox(width: 5,),
-                                      CircleAvatar(backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage('images/logo.jpeg'),
-                                        radius: 12,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                // date & time
-                                const SizedBox(height: 10,),
-                                Container(width: 110,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text('1 April 2023',style:GoogleFonts.lora(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.colors.background.withOpacity(0.8),
-                                      ) ,),
-                                      const SizedBox(width: 5,),
-                                      Text('07:00',style:GoogleFonts.lora(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppTheme.colors.background.withOpacity(0.8),
-                                      ) ,),
-                                    ],
-                                  ),
-                                ),
-//teams name
-                                const SizedBox(height: 10,),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5.0),
-                                  child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppTheme.colors.background,
-                                  ) ,),
-                                ),
-
-// more menu
-
-                              ],
-                            ),
-                            Container(
-                              alignment: Alignment(1,1),
-                              child: Container(
-                                width: 40,
-                                height: 40,
-
-                                child: IconButton(onPressed: (){
-
-                                }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                              ),
-                            ),
-                          ] ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      height: 170,
-                      width: 300,
-                      decoration:const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/st2.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),child: Stack(
-                        children:[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-//Live Container
-                              Container(
-                                width: 50,
-                                height: 20,
-                                color: AppTheme.colors.appbar,
-                                child: Center(child: Text('LIVE',style: GoogleFonts.lora(color: AppTheme.colors.background,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold
-                                ),),),
-                              ),
-                              const SizedBox(height: 60,),
-//team logos
-                              Container(width: 60,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                  children: const[
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
-                                    ),
-                                    SizedBox(width: 5,),
-                                    CircleAvatar(backgroundColor: Colors.transparent,
-                                      backgroundImage: AssetImage('images/logo.jpeg'),
-                                      radius: 12,
                                     ),
                                   ],
                                 ),
-                              ),
-                              // date & time
-                              const SizedBox(height: 10,),
-                              Container(width: 110,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text('1 April 2023',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
-                                    const SizedBox(width: 5,),
-                                    Text('07:00',style:GoogleFonts.lora(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.colors.background.withOpacity(0.8),
-                                    ) ,),
-                                  ],
-                                ),
-                              ),
-//teams name
-                              const SizedBox(height: 10,),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5.0),
-                                child: Text('LA Force vs Club de Lyon FC',style:GoogleFonts.lora(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppTheme.colors.background,
-                                ) ,),
-                              ),
-
-// more menu
-
+                              )
                             ],
-                          ),
-                          Container(
-                            alignment: Alignment(1,1),
-                            child: Container(
-                              width: 40,
-                              height: 40,
-
-                              child: IconButton(onPressed: (){
-
-                              }, icon: Icon(CupertinoIcons.ellipsis,color: AppTheme.colors.background)),
-                            ),
-                          ),
-                        ] ),
-                    ),
-                  ],
+                          )
+                      );}
                 ),
-              ),
-
-            ],
-          ),
+                
+              ],
+            ))
+          ],
         ),
       ),
     );
