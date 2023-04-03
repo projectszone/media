@@ -45,7 +45,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(CupertinoIcons.film),
+          icon: Icon(CupertinoIcons.play_circle),
           title: ("Watch"),
           textStyle: GoogleFonts.lora(color: AppTheme.colors.background,fontSize: 14),
           activeColorPrimary: AppTheme.colors.text,

@@ -213,6 +213,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                     borderRadius: BorderRadius.circular(30),
                                     color: AppTheme.colors.appbar),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
@@ -220,6 +221,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                           AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
+                                    const SizedBox(width: 5),
                                     Text(
                                       'Men Senior League',
                                       style: GoogleFonts.lora(
@@ -239,6 +241,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                     borderRadius: BorderRadius.circular(30),
                                     color: AppTheme.colors.appbar),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
@@ -246,6 +249,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                           AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
+                                    const SizedBox(width: 5),
                                     Text(
                                       'Men Senior League',
                                       style: GoogleFonts.lora(
@@ -265,6 +269,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                     borderRadius: BorderRadius.circular(30),
                                     color: AppTheme.colors.appbar),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
@@ -272,6 +277,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                           AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
+                                    const SizedBox(width: 5),
                                     Text(
                                       'Men Senior League',
                                       style: GoogleFonts.lora(
@@ -291,6 +297,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                     borderRadius: BorderRadius.circular(30),
                                     color: AppTheme.colors.appbar),
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
@@ -298,6 +305,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                           AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
+                                    const SizedBox(width: 5),
                                     Text(
                                       'Men Senior League',
                                       style: GoogleFonts.lora(
@@ -391,7 +399,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           'Live Match',
@@ -400,13 +409,14 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold),
                                         ),
-                                        SizedBox(height: 10,),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
                                         Expanded(
                                           flex: 3,
                                           child: ListView(
                                               scrollDirection: Axis.horizontal,
                                               children: [
-
                                                 Container(
                                                   width: 240,
                                                   height: 170,
@@ -420,20 +430,22 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                       const SizedBox(
                                                         height: 20,
                                                       ),
-                                                      Text('Men Senior League',
+                                                      Text(
+                                                        'Men Senior League',
                                                         style: GoogleFonts.lora(
-                                                            color: Colors
-                                                                .white,
+                                                            color: Colors.white,
                                                             fontSize: 14,
                                                             fontWeight:
-                                                            FontWeight
-                                                                .bold),),
-                                                      Text('Week 10',
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      Text(
+                                                        'Week 10',
                                                         style: GoogleFonts.lora(
-                                                          color: Colors
-                                                              .white,
+                                                          color: Colors.white,
                                                           fontSize: 12,
-                                                        ),),
+                                                        ),
+                                                      ),
                                                       Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -458,7 +470,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 14,
+                                                                    fontSize:
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -468,7 +481,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 10,
+                                                                    fontSize:
+                                                                        10,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -479,9 +493,11 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                             children: [
                                                               Text(
                                                                 '0:3',
-                                                                style: GoogleFonts
-                                                                    .lora(
-                                                                  color: Colors.white,
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .lora(
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -491,14 +507,16 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                               Container(
                                                                 child: Text(
                                                                   '84',
-                                                                  style: GoogleFonts
-                                                                      .lora(
+                                                                  style:
+                                                                      GoogleFonts
+                                                                          .lora(
                                                                     color: Colors
                                                                         .white,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
-                                                                    fontSize: 18,
+                                                                    fontSize:
+                                                                        18,
                                                                   ),
                                                                 ),
                                                               ),
@@ -520,7 +538,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 14,
+                                                                    fontSize:
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -530,7 +549,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 10,
+                                                                    fontSize:
+                                                                        10,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -545,7 +565,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                     ],
                                                   ),
                                                 ),
-                                                SizedBox(width:10),
+                                                SizedBox(width: 10),
                                                 Container(
                                                   width: 240,
                                                   height: 170,
@@ -559,20 +579,22 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                       const SizedBox(
                                                         height: 20,
                                                       ),
-                                                      Text('Men Senior League',
+                                                      Text(
+                                                        'Men Senior League',
                                                         style: GoogleFonts.lora(
-                                                            color: Colors
-                                                                .white,
+                                                            color: Colors.white,
                                                             fontSize: 14,
                                                             fontWeight:
-                                                            FontWeight
-                                                                .bold),),
-                                                      Text('Week 10',
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      Text(
+                                                        'Week 10',
                                                         style: GoogleFonts.lora(
-                                                          color: Colors
-                                                              .white,
+                                                          color: Colors.white,
                                                           fontSize: 12,
-                                                        ),),
+                                                        ),
+                                                      ),
                                                       Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -597,7 +619,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 14,
+                                                                    fontSize:
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -607,7 +630,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 10,
+                                                                    fontSize:
+                                                                        10,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -618,9 +642,11 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                             children: [
                                                               Text(
                                                                 '0:3',
-                                                                style: GoogleFonts
-                                                                    .lora(
-                                                                  color: Colors.white,
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .lora(
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -628,17 +654,18 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 ),
                                                               ),
                                                               Container(
-                                                               
                                                                 child: Text(
                                                                   '84',
-                                                                  style: GoogleFonts
-                                                                      .lora(
+                                                                  style:
+                                                                      GoogleFonts
+                                                                          .lora(
                                                                     color: Colors
                                                                         .white,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
-                                                                    fontSize: 18,
+                                                                    fontSize:
+                                                                        18,
                                                                   ),
                                                                 ),
                                                               ),
@@ -660,7 +687,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 14,
+                                                                    fontSize:
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -670,7 +698,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 10,
+                                                                    fontSize:
+                                                                        10,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -685,7 +714,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                     ],
                                                   ),
                                                 ),
-                                                SizedBox(width:10),
+                                                SizedBox(width: 10),
                                                 Container(
                                                   width: 240,
                                                   height: 170,
@@ -699,20 +728,22 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                       const SizedBox(
                                                         height: 20,
                                                       ),
-                                                      Text('Men Senior League',
+                                                      Text(
+                                                        'Men Senior League',
                                                         style: GoogleFonts.lora(
-                                                            color: Colors
-                                                                .white,
+                                                            color: Colors.white,
                                                             fontSize: 14,
                                                             fontWeight:
-                                                            FontWeight
-                                                                .bold),),
-                                                      Text('Week 10',
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      Text(
+                                                        'Week 10',
                                                         style: GoogleFonts.lora(
-                                                          color: Colors
-                                                              .white,
+                                                          color: Colors.white,
                                                           fontSize: 12,
-                                                        ),),
+                                                        ),
+                                                      ),
                                                       Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -737,7 +768,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 14,
+                                                                    fontSize:
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -747,7 +779,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 10,
+                                                                    fontSize:
+                                                                        10,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -758,9 +791,11 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                             children: [
                                                               Text(
                                                                 '0:3',
-                                                                style: GoogleFonts
-                                                                    .lora(
-                                                                  color: Colors.white,
+                                                                style:
+                                                                    GoogleFonts
+                                                                        .lora(
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -768,17 +803,18 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 ),
                                                               ),
                                                               Container(
-                                                               
                                                                 child: Text(
                                                                   '84',
-                                                                  style: GoogleFonts
-                                                                      .lora(
+                                                                  style:
+                                                                      GoogleFonts
+                                                                          .lora(
                                                                     color: Colors
                                                                         .white,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
-                                                                    fontSize: 18,
+                                                                    fontSize:
+                                                                        18,
                                                                   ),
                                                                 ),
                                                               ),
@@ -800,7 +836,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 14,
+                                                                    fontSize:
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -810,7 +847,8 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                                                 style: GoogleFonts.lora(
                                                                     color: Colors
                                                                         .white,
-                                                                    fontSize: 10,
+                                                                    fontSize:
+                                                                        10,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
@@ -828,8 +866,213 @@ class _ScheduleScreenState extends State<ScheduleScreen>
                                               ]),
                                         ),
                                         Expanded(
-                                            flex: 4,
-                                            child: Text('date')),
+                                            flex: 5,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Matches',
+                                                        style: GoogleFonts.lora(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'See All',
+                                                        style: GoogleFonts.lora(
+                                                          fontSize: 18,
+                                                          color: AppTheme
+                                                              .colors.appbar,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Card(
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                    ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                                      children:[
+                                                        Text('Manchester Utd',
+                                                        style:GoogleFonts.lora(
+                                                          color:AppTheme.colors.text,
+                                                          fontSize:16,
+                                                          fontWeight:FontWeight.bold,
+                                                        )),
+                                                        CircleAvatar(radius:15,
+                                                        backgroundColor:Colors.transparent,
+                                                        backgroundImage:AssetImage('images/logo.jpeg')),
+                                                        Column(
+                                                          children:[
+                                                            Text('08:30',
+                                                                style:GoogleFonts.lora(
+                                                                  color:AppTheme.colors.appbar,
+                                                                  fontSize:16,
+                                                                  fontWeight:FontWeight.bold,
+                                                                )),
+                                                            const SizedBox(
+                                                              height:5
+                                                            ),
+                                                            Text('6 Apr',
+                                                                style:GoogleFonts.lora(
+                                                                  color:AppTheme.colors.text,
+                                                                  fontSize:14,
+                                                                  fontWeight:FontWeight.bold,
+                                                                )),
+                                                          ]
+                                                        ),
+                                                        CircleAvatar(radius:15,
+                                                            backgroundColor:Colors.transparent,
+                                                            backgroundImage:AssetImage('images/logo.jpeg')),
+                                                        Text('Liver Pool',
+                                                            style:GoogleFonts.lora(
+                                                              color:AppTheme.colors.text,
+                                                              fontSize:16,
+                                                              fontWeight:FontWeight.bold,
+                                                            )),
+                                                      ]
+                                                    ),
+                                                  )
+                                                  ),
+                                                  Card(
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(10),
+                                                      ),
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.all(8.0),
+                                                        child: Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                                            children:[
+                                                              Text('Manchester City',
+                                                                  style:GoogleFonts.lora(
+                                                                    color:AppTheme.colors.text,
+                                                                    fontSize:16,
+                                                                    fontWeight:FontWeight.bold,
+                                                                  )),
+                                                              CircleAvatar(radius:15,
+                                                                  backgroundColor:Colors.transparent,
+                                                                  backgroundImage:AssetImage('images/logo.jpeg')),
+                                                              Column(
+                                                                  children:[
+                                                                    Text('08:30',
+                                                                        style:GoogleFonts.lora(
+                                                                          color:AppTheme.colors.appbar,
+                                                                          fontSize:16,
+                                                                          fontWeight:FontWeight.bold,
+                                                                        )),
+                                                                    const SizedBox(
+                                                                        height:5
+                                                                    ),
+                                                                    Text('6 Apr',
+                                                                        style:GoogleFonts.lora(
+                                                                          color:AppTheme.colors.text,
+                                                                          fontSize:14,
+                                                                          fontWeight:FontWeight.bold,
+                                                                        )),
+                                                                  ]
+                                                              ),
+                                                              CircleAvatar(radius:15,
+                                                                  backgroundColor:Colors.transparent,
+                                                                  backgroundImage:AssetImage('images/logo.jpeg')),
+                                                              Text('PSG',
+                                                                  style:GoogleFonts.lora(
+                                                                    color:AppTheme.colors.text,
+                                                                    fontSize:16,
+                                                                    fontWeight:FontWeight.bold,
+                                                                  )),
+                                                            ]
+                                                        ),
+                                                      )
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Videos',
+                                                        style: GoogleFonts.lora(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                          FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'See All',
+                                                        style: GoogleFonts.lora(
+                                                          fontSize: 18,
+                                                          color: AppTheme
+                                                              .colors.appbar,
+                                                          fontWeight:
+                                                          FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Card(
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(10),
+                                                      ),
+                                                      child: Padding(
+                                                        padding: const EdgeInsets.all(8.0),
+                                                        child: Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                                            children:[
+                                                              Text('Manchester City',
+                                                                  style:GoogleFonts.lora(
+                                                                    color:AppTheme.colors.text,
+                                                                    fontSize:16,
+                                                                    fontWeight:FontWeight.bold,
+                                                                  )),
+                                                              CircleAvatar(radius:15,
+                                                                  backgroundColor:Colors.transparent,
+                                                                  backgroundImage:AssetImage('images/logo.jpeg')),
+                                                              Column(
+                                                                  children:[
+                                                                    Text('08:30',
+                                                                        style:GoogleFonts.lora(
+                                                                          color:AppTheme.colors.appbar,
+                                                                          fontSize:16,
+                                                                          fontWeight:FontWeight.bold,
+                                                                        )),
+                                                                    const SizedBox(
+                                                                        height:5
+                                                                    ),
+                                                                    Text('6 Apr',
+                                                                        style:GoogleFonts.lora(
+                                                                          color:AppTheme.colors.text,
+                                                                          fontSize:14,
+                                                                          fontWeight:FontWeight.bold,
+                                                                        )),
+                                                                  ]
+                                                              ),
+                                                              CircleAvatar(radius:15,
+                                                                  backgroundColor:Colors.transparent,
+                                                                  backgroundImage:AssetImage('images/logo.jpeg')),
+                                                              Text('PSG',
+                                                                  style:GoogleFonts.lora(
+                                                                    color:AppTheme.colors.text,
+                                                                    fontSize:16,
+                                                                    fontWeight:FontWeight.bold,
+                                                                  )),
+                                                            ]
+                                                        ),
+                                                      )
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                        ),
                                       ],
                                     ),
                                   ),
