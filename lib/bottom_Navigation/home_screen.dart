@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:media/bottom_Navigation/live_streaming.dart';
+import 'package:media/matches_screens/match_information.dart';
 import 'package:media/profile_management/profile_management.dart';
 import 'package:media/colors/app_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -177,14 +179,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      Container(
-                        width: 80,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: AssetImage('images/karim.jpg'),
-                                fit: BoxFit.cover)),
+                      InkWell(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
+                        },
+                        child: Container(
+                          width: 80,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: AssetImage('images/karim.jpg'),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -210,14 +217,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      Container(
-                        width: 80,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: AssetImage('images/messi.jpg'),
-                                fit: BoxFit.cover)),
+                      InkWell(onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
+                      },
+                        child: Container(
+                          width: 80,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: AssetImage('images/messi.jpg'),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -243,14 +254,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      Container(
-                        width: 80,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: AssetImage('images/ronaldo.jpg'),
-                                fit: BoxFit.cover)),
+                      InkWell(onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
+                      },
+                        child: Container(
+                          width: 80,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: AssetImage('images/ronaldo.jpg'),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -276,14 +291,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      Container(
-                        width: 80,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: AssetImage('images/mbappe.jpg'),
-                                fit: BoxFit.cover)),
+                      InkWell(onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
+                      },
+                        child: Container(
+                          width: 80,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: AssetImage('images/mbappe.jpg'),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -315,171 +334,190 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               controller: _tabController,
               children: [
                 ListView.builder(
-                  itemCount:1,
+                  itemCount:2,
                   itemBuilder: (context,index){
-                  return Card(
-                  color: AppTheme.colors.background,
-                    child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image(image: AssetImage('images/st2.jpg'),
-                          fit: BoxFit.fill,
+                  return InkWell(
+                    onTap:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
+                    },
+                    child: Card(
+                    color: AppTheme.colors.background,
+                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image(image: AssetImage('images/st2.jpg'),
+                            fit: BoxFit.fill,
 
 
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.3),
                           ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                    Row(
-                                      children: [
-                                        Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                        const SizedBox(width: 200,),
-                                        Text('Football',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                      ],
-                                    )
-                                  ],
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.3),
+                            ),
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                      Row(
+                                        children: [
+                                          Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                          const SizedBox(width: 200,),
+                                          Text('Football',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    )
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ),
                   );}
                 ),
                 ListView.builder(
-                    itemCount:1,
+                    itemCount:2,
                     itemBuilder: (context,index){
-                      return Card(
-                          color: AppTheme.colors.background,
-                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image(image: AssetImage('images/st3.jpg'),
-                                fit: BoxFit.fill,
+                      return InkWell(onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
+                      },
+                        child: Card(
+                            color: AppTheme.colors.background,
+                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(image: AssetImage('images/st3.jpg'),
+                                  fit: BoxFit.fill,
 
 
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.3),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                          Row(
-                                            children: [
-                                              Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                              const SizedBox(width: 200,),
-                                              Text('BasketBall',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                            ],
-                                          )
-                                        ],
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.3),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            Row(
+                                              children: [
+                                                Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                                const SizedBox(width: 200,),
+                                                Text('BasketBall',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                        ),
                       );}
                 ),
                 ListView.builder(
-                    itemCount:1,
+                    itemCount:2,
                     itemBuilder: (context,index){
-                      return Card(
-                          color: AppTheme.colors.background,
-                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image(image: AssetImage('images/st5.jpg'),
-                                fit: BoxFit.fill,
+                      return InkWell(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
+                        },
+                        child: Card(
+                            color: AppTheme.colors.background,
+                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(image: AssetImage('images/st5.jpg'),
+                                  fit: BoxFit.fill,
 
 
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.3),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                          Row(
-                                            children: [
-                                              Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                              const SizedBox(width: 200,),
-                                              Text('Baseball',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                            ],
-                                          )
-                                        ],
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.3),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            Row(
+                                              children: [
+                                                Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                                const SizedBox(width: 200,),
+                                                Text('Baseball',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                        ),
                       );}
                 ),
                 ListView.builder(
-                    itemCount:1,
+                    itemCount:2,
                     itemBuilder: (context,index){
-                      return Card(
-                          color: AppTheme.colors.background,
-                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image(image: AssetImage('images/st4.jpg'),
-                                fit: BoxFit.fill,
+                      return InkWell(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
+                        },
+                        child: Card(
+                            color: AppTheme.colors.background,
+                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(image: AssetImage('images/st4.jpg'),
+                                  fit: BoxFit.fill,
 
 
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.3),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                          Row(
-                                            children: [
-                                              Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                              const SizedBox(width: 200,),
-                                              Text('Hockey',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                            ],
-                                          )
-                                        ],
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.3),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            Row(
+                                              children: [
+                                                Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                                const SizedBox(width: 200,),
+                                                Text('Hockey',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                        ),
                       );}
                 ),
                 

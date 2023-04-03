@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:media/bottom_Navigation/home_screen.dart';
+import 'package:media/bottom_Navigation/live_streaming.dart';
 import 'package:media/bottom_Navigation/schedule_screen.dart';
-import 'package:media/bottom_Navigation/search_screen.dart';
 import 'package:media/colors/app_theme.dart';
 import 'package:media/profile_management/profile_management.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -24,7 +24,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
       return [
         HomeScreen(),
         ScheduleScreen(),
-        SearchScreen(),
+        LiveStreaming(),
         ProfileManagement(),
 
       ];
