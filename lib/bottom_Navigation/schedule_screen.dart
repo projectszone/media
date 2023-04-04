@@ -7,6 +7,7 @@ import 'package:media/bottom_Navigation/home_screen.dart';
 import 'package:media/colors/app_theme.dart';
 
 import '../matches_screens/match_information.dart';
+import 'live_streaming.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({Key? key}) : super(key: key);
@@ -15,7 +16,8 @@ class ScheduleScreen extends StatefulWidget {
   State<ScheduleScreen> createState() => _ScheduleScreenState();
 }
 
-class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStateMixin {
+class _ScheduleScreenState extends State<ScheduleScreen>
+    with TickerProviderStateMixin {
   List<DateTime> _weekDates = [];
 
   @override
@@ -31,16 +33,18 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
       _weekDates.add(startOfWeek.add(Duration(days: i)));
     }
   }
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 4, vsync: this);
     TabController _tabController2 = TabController(length: 3, vsync: this);
     return Scaffold(
       body: SafeArea(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
- //appbar
+            //appbar
             Row(
               children: [
                 SizedBox(
@@ -136,7 +140,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                           CircleAvatar(
                             radius: 10,
                             backgroundImage:
-                            AssetImage('images/basketball.png'),
+                                AssetImage('images/basketball.png'),
                             backgroundColor: Colors.transparent,
                           ),
                           Text(
@@ -194,10 +198,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  
                   Column(
-
-                    children : [
+                    children: [
                       Expanded(
                         child: ListView(
                           scrollDirection: Axis.horizontal,
@@ -206,16 +208,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 height: 20,
-                                width:150,
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: AppTheme.colors.appbar
-                                ),
+                                    color: AppTheme.colors.appbar),
                                 child: Row(
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
-                                      backgroundImage: AssetImage('images/football.png'),
+                                      backgroundImage:
+                                          AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
                                     Text(
@@ -232,16 +234,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 height: 20,
-                                width:150,
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: AppTheme.colors.appbar
-                                ),
+                                    color: AppTheme.colors.appbar),
                                 child: Row(
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
-                                      backgroundImage: AssetImage('images/football.png'),
+                                      backgroundImage:
+                                          AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
                                     Text(
@@ -258,16 +260,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 height: 20,
-                                width:150,
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: AppTheme.colors.appbar
-                                ),
+                                    color: AppTheme.colors.appbar),
                                 child: Row(
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
-                                      backgroundImage: AssetImage('images/football.png'),
+                                      backgroundImage:
+                                          AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
                                     Text(
@@ -284,16 +286,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 height: 20,
-                                width:150,
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: AppTheme.colors.appbar
-                                ),
+                                    color: AppTheme.colors.appbar),
                                 child: Row(
                                   children: [
                                     CircleAvatar(
                                       radius: 10,
-                                      backgroundImage: AssetImage('images/football.png'),
+                                      backgroundImage:
+                                          AssetImage('images/football.png'),
                                       backgroundColor: Colors.transparent,
                                     ),
                                     Text(
@@ -306,118 +308,544 @@ class _ScheduleScreenState extends State<ScheduleScreen> with TickerProviderStat
                                 ),
                               ),
                             ),
-
                           ],
                         ),
                       ),
                       Expanded(
-
-                        child: TabBar(
-                          controller: _tabController2,
-                          isScrollable: true,
-                          labelPadding: EdgeInsets.symmetric(horizontal: 40),
-                          tabs: [
-                            Tab(
-                              child:
-                                  Text(
-                                    'Dates',
-                                    style: GoogleFonts.lora(
-                                        color: Colors.black,
-                                        fontSize: 12),
-                                  ),
-
+                          child: TabBar(
+                        controller: _tabController2,
+                        isScrollable: true,
+                        labelPadding: EdgeInsets.symmetric(horizontal: 40),
+                        tabs: [
+                          Tab(
+                            child: Text(
+                              'Dates',
+                              style: GoogleFonts.lora(
+                                  color: Colors.black, fontSize: 12),
                             ),
-                            Tab(
-                              child:
-                                  Text(
-                                    'Games',
-                                    style: GoogleFonts.lora(
-                                        color: Colors.black,
-                                        fontSize: 12),
-                                  ),
-
+                          ),
+                          Tab(
+                            child: Text(
+                              'Games',
+                              style: GoogleFonts.lora(
+                                  color: Colors.black, fontSize: 12),
                             ),
-                            Tab(
-                              child:
-                                  Text(
-                                    'Standings',
-                                    style: GoogleFonts.lora(
-                                        color: Colors.black,
-                                        fontSize: 12),
-                                  ),
-
+                          ),
+                          Tab(
+                            child: Text(
+                              'Standings',
+                              style: GoogleFonts.lora(
+                                  color: Colors.black, fontSize: 12),
                             ),
-                        ],)
-                      ),
+                          ),
+                        ],
+                      )),
                       Expanded(
                         flex: 11,
-                          child:
-                          TabBarView(
-                            controller: _tabController2,
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 20,top: 20),
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: _weekDates.length,
-                                        itemBuilder: (BuildContext context, int index) {
-                                          DateTime date = _weekDates[index];
-                                          String dayName = DateFormat('EEE').format(date);
-                                          String dateNumber = DateFormat('d MMM').format(date);
-                                          return Container(
-                                            width: 50,
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  dayName,
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                        child: TabBarView(
+                          controller: _tabController2,
+                          children: [
+                            Column(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20, top: 20),
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: _weekDates.length,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        DateTime date = _weekDates[index];
+                                        String dayName =
+                                            DateFormat('EEE').format(date);
+                                        String dateNumber =
+                                            DateFormat('d MMM').format(date);
+                                        return Container(
+                                          width: 50,
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                dayName,
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
-                                                Text(
-                                                  dateNumber,
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                              ),
+                                              Text(
+                                                dateNumber,
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
                                     ),
                                   ),
+                                ),
+                                Expanded(
+                                  flex: 7,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Live Match',
+                                          style: GoogleFonts.lora(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(height: 10,),
+                                        Expanded(
+                                          flex: 3,
+                                          child: ListView(
+                                              scrollDirection: Axis.horizontal,
+                                              children: [
 
-                                ],
-                              )
-                            ],
-
-                          ),
+                                                Container(
+                                                  width: 240,
+                                                  height: 170,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.black,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  child: Column(
+                                                    children: [
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                      Text('Men Senior League',
+                                                        style: GoogleFonts.lora(
+                                                            color: Colors
+                                                                .white,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                            FontWeight
+                                                                .bold),),
+                                                      Text('Week 10',
+                                                        style: GoogleFonts.lora(
+                                                          color: Colors
+                                                              .white,
+                                                          fontSize: 12,
+                                                        ),),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Column(
+                                                            children: [
+                                                              CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'images/logo.jpeg'),
+                                                              ),
+                                                              Text(
+                                                                'Real Madrid',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                'Home',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              Text(
+                                                                '0:3',
+                                                                style: GoogleFonts
+                                                                    .lora(
+                                                                  color: Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontSize: 18,
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                child: Text(
+                                                                  '84',
+                                                                  style: GoogleFonts
+                                                                      .lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize: 18,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'images/logo.jpeg'),
+                                                              ),
+                                                              Text(
+                                                                'FB Barcelona',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                'Away',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(width:10),
+                                                Container(
+                                                  width: 240,
+                                                  height: 170,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.black,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  child: Column(
+                                                    children: [
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                      Text('Men Senior League',
+                                                        style: GoogleFonts.lora(
+                                                            color: Colors
+                                                                .white,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                            FontWeight
+                                                                .bold),),
+                                                      Text('Week 10',
+                                                        style: GoogleFonts.lora(
+                                                          color: Colors
+                                                              .white,
+                                                          fontSize: 12,
+                                                        ),),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Column(
+                                                            children: [
+                                                              CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'images/logo.jpeg'),
+                                                              ),
+                                                              Text(
+                                                                'Real Madrid',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                'Home',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              Text(
+                                                                '0:3',
+                                                                style: GoogleFonts
+                                                                    .lora(
+                                                                  color: Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontSize: 18,
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                               
+                                                                child: Text(
+                                                                  '84',
+                                                                  style: GoogleFonts
+                                                                      .lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize: 18,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'images/logo.jpeg'),
+                                                              ),
+                                                              Text(
+                                                                'FB Barcelona',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                'Away',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(width:10),
+                                                Container(
+                                                  width: 240,
+                                                  height: 170,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.black,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  child: Column(
+                                                    children: [
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                      Text('Men Senior League',
+                                                        style: GoogleFonts.lora(
+                                                            color: Colors
+                                                                .white,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                            FontWeight
+                                                                .bold),),
+                                                      Text('Week 10',
+                                                        style: GoogleFonts.lora(
+                                                          color: Colors
+                                                              .white,
+                                                          fontSize: 12,
+                                                        ),),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Column(
+                                                            children: [
+                                                              CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'images/logo.jpeg'),
+                                                              ),
+                                                              Text(
+                                                                'Real Madrid',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                'Home',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              Text(
+                                                                '0:3',
+                                                                style: GoogleFonts
+                                                                    .lora(
+                                                                  color: Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontSize: 18,
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                               
+                                                                child: Text(
+                                                                  '84',
+                                                                  style: GoogleFonts
+                                                                      .lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize: 18,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'images/logo.jpeg'),
+                                                              ),
+                                                              Text(
+                                                                'FB Barcelona',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                'Away',
+                                                                style: GoogleFonts.lora(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ]),
+                                        ),
+                                        Expanded(
+                                            flex: 4,
+                                            child: Text('date')),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-
                     ],
-
                   ),
-
-
-
-
-
                 ],
               ),
-
             ),
             // Expanded(
             //     child: child),
-
-
-
-
           ],
         ),
       ),

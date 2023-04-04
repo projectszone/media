@@ -45,7 +45,7 @@ class _MatchInformationState extends State<MatchInformation>
                     ),
                     Center(
                       child: Text(
-                        'LEAGE DESCRIPTION\n week 10',
+                        'LEAGUE DESCRIPTION\n week 10',
                         style: GoogleFonts.lora(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
