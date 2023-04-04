@@ -77,7 +77,7 @@ class _MatchInformationState extends State<MatchInformation>
                                     radius: 25,
                                     backgroundColor: Colors.transparent,
                                     backgroundImage:
-                                        AssetImage('images/logo.jpeg'),
+                                        AssetImage('images/rm.png'),
                                   ),
                                   Text(
                                     'Real Madrid',
@@ -121,7 +121,7 @@ class _MatchInformationState extends State<MatchInformation>
                                     radius: 25,
                                     backgroundColor: Colors.transparent,
                                     backgroundImage:
-                                        AssetImage('images/logo.jpeg'),
+                                        AssetImage('images/fcb.png'),
                                   ),
                                   Text(
                                     'FB Barcelona',
