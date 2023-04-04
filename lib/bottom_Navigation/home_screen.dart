@@ -98,7 +98,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   labelPadding: EdgeInsets.symmetric(horizontal: 17),
                   tabs: [
                     Tab(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
                             radius: 10,
@@ -115,7 +117,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
                     Tab(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
                             radius: 10,
@@ -133,7 +137,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
                     Tab(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
                             radius: 10,
@@ -150,7 +156,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
                     Tab(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
                             radius: 10,
@@ -178,10 +186,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Stack(children: [
+                    child: Stack(
+                        children: [
                       InkWell(
-                        onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => LiveStreaming()));
                         },
                         child: Container(
                           width: 80,
@@ -217,9 +229,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      InkWell(onTap:(){
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
-                      },
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => LiveStreaming()));
+                        },
                         child: Container(
                           width: 80,
                           height: 150,
@@ -254,9 +270,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      InkWell(onTap:(){
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
-                      },
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => LiveStreaming()));
+                        },
                         child: Container(
                           width: 80,
                           height: 150,
@@ -291,9 +311,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Stack(children: [
-                      InkWell(onTap:(){
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=>LiveStreaming()));
-                      },
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => LiveStreaming()));
+                        },
                         child: Container(
                           width: 80,
                           height: 150,
@@ -328,120 +352,31 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ],
               ),
             ),
-  //tab bar view
+            //tab bar view
             Expanded(
                 child: TabBarView(
               controller: _tabController,
               children: [
+               //Football list
                 ListView.builder(
-                  itemCount:2,
-                  itemBuilder: (context,index){
-                  return InkWell(
-                    onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
-                    },
-                    child: Card(
-                    color: AppTheme.colors.background,
-                      child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image(image: AssetImage('images/st2.jpg'),
-                            fit: BoxFit.fill,
-
-
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.3),
-                            ),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                      Row(
-                                        children: [
-                                          Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                          const SizedBox(width: 200,),
-                                          Text('Football',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ),
-                  );}
-                ),
-                ListView.builder(
-                    itemCount:2,
-                    itemBuilder: (context,index){
-                      return InkWell(onTap:(){
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
-                      },
-                        child: Card(
-                            color: AppTheme.colors.background,
-                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Image(image: AssetImage('images/st3.jpg'),
-                                  fit: BoxFit.fill,
-
-
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.3),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                            Row(
-                                              children: [
-                                                Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                                const SizedBox(width: 200,),
-                                                Text('BasketBall',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                        ),
-                      );}
-                ),
-                ListView.builder(
-                    itemCount:2,
-                    itemBuilder: (context,index){
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
                       return InkWell(
-                        onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => MatchInformation()));
                         },
                         child: Card(
                             color: AppTheme.colors.background,
-                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image(image: AssetImage('images/st5.jpg'),
+                                Image(
+                                  image: AssetImage('images/st2.jpg'),
                                   fit: BoxFit.fill,
-
-
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
@@ -451,15 +386,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
-                                        child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            Text(
+                                              'Team A vs Team B',
+                                              style: GoogleFonts.lora(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
                                             Row(
                                               children: [
-                                                Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                                const SizedBox(width: 200,),
-                                                Text('Baseball',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                                Text(
+                                                  'Tuesday 9:00',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                const SizedBox(
+                                                  width: 200,
+                                                ),
+                                                Text(
+                                                  'Football',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
                                               ],
                                             )
                                           ],
@@ -469,26 +423,29 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   ),
                                 )
                               ],
-                            )
-                        ),
-                      );}
-                ),
+                            )),
+                      );
+                    }),
+                //BasketBall list
                 ListView.builder(
-                    itemCount:2,
-                    itemBuilder: (context,index){
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
                       return InkWell(
-                        onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MatchInformation()));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => MatchInformation()));
                         },
                         child: Card(
                             color: AppTheme.colors.background,
-                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image(image: AssetImage('images/st4.jpg'),
+                                Image(
+                                  image: AssetImage('images/st3.jpg'),
                                   fit: BoxFit.fill,
-
-
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
@@ -498,15 +455,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
-                                        child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Text('Team A vs Team B',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                            Text(
+                                              'Team A vs Team B',
+                                              style: GoogleFonts.lora(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
                                             Row(
                                               children: [
-                                                Text('Tuesday 9:00',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
-                                                const SizedBox(width: 200,),
-                                                Text('Hockey',style: GoogleFonts.lora(fontWeight: FontWeight.bold),),
+                                                Text(
+                                                  'Tuesday 9:00',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                const SizedBox(
+                                                  width: 200,
+                                                ),
+                                                Text(
+                                                  'BasketBall',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
                                               ],
                                             )
                                           ],
@@ -516,11 +492,147 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   ),
                                 )
                               ],
-                            )
-                        ),
-                      );}
-                ),
-                
+                            )),
+                      );
+                    }),
+                //Baseball list
+                ListView.builder(
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => MatchInformation()));
+                        },
+                        child: Card(
+                            color: AppTheme.colors.background,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(
+                                  image: AssetImage('images/st5.jpg'),
+                                  fit: BoxFit.fill,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.3),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Team A vs Team B',
+                                              style: GoogleFonts.lora(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  'Tuesday 9:00',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                const SizedBox(
+                                                  width: 200,
+                                                ),
+                                                Text(
+                                                  'Baseball',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )),
+                      );
+                    }),
+                //Hockey list
+                ListView.builder(
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => MatchInformation()));
+                        },
+                        child: Card(
+                            color: AppTheme.colors.background,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(
+                                  image: AssetImage('images/st4.jpg'),
+                                  fit: BoxFit.fill,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.3),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Team A vs Team B',
+                                              style: GoogleFonts.lora(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  'Tuesday 9:00',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                const SizedBox(
+                                                  width: 200,
+                                                ),
+                                                Text(
+                                                  'Hockey',
+                                                  style: GoogleFonts.lora(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )),
+                      );
+                    }),
               ],
             ))
           ],

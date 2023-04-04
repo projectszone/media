@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media/bottom_Navigation/schedule_screen.dart';
 import 'package:media/intro_screens/splash_screen.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: ScheduleScreen(),
     );
   }
 }
