@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:media/bottom_Navigation/Tabs_data/second_tab.dart';
+import 'package:media/bottom_Navigation/Tabs_data/second_tabbar/myTabWidget1.dart';
+import 'package:media/bottom_Navigation/Tabs_data/second_tabbar/myTabWidget2.dart';
+import 'package:media/bottom_Navigation/Tabs_data/second_tabbar/myTabWidget3.dart';
 import 'package:media/bottom_Navigation/bottom_navigation_screen.dart';
 import 'package:media/bottom_Navigation/home_screen.dart';
 import 'package:media/colors/app_theme.dart';
@@ -363,7 +365,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
          //games page of football
                             MyTabWidget2(),
 
-                            MyTabWidget2(),
+                            MyTabWidget3(),
 
 
 

@@ -20,6 +20,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    double rheight = MediaQuery.of(context).size.height/812;
+    double rwidth = MediaQuery.of(context).size.width/375;
+    double rtext = MediaQuery.textScaleFactorOf(context);
     TabController _tabController = TabController(length: 4, vsync: this);
     return Scaffold(
       backgroundColor: AppTheme.colors.background,
@@ -32,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             Row(
               children: [
                 SizedBox(
-                  width: 120,
+                  width: 120*rwidth,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -42,20 +45,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       radius: 12,
                       backgroundColor: Colors.transparent,
                     ),
-                    const SizedBox(
-                      width: 8,
+                     SizedBox(
+                      width: 8*rwidth,
                     ),
                     Text(
                       'MEDIA',
                       style: GoogleFonts.lora(
                           fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                          fontSize: 24*rtext,
                           color: AppTheme.colors.text),
                     ),
                   ],
                 ),
                 SizedBox(
-                  width: 50,
+                  width: 50*rwidth,
                 ),
                 Row(
                   children: [
@@ -64,21 +67,21 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         icon: Icon(
                           CupertinoIcons.search_circle,
                           color: AppTheme.colors.text,
-                          size: 24,
+                          size: 24*rheight,
                         )),
                     IconButton(
                         onPressed: () {},
                         icon: Icon(
                           CupertinoIcons.bell_circle,
                           color: AppTheme.colors.text,
-                          size: 24,
+                          size: 24*rheight,
                         )),
                   ],
                 )
               ],
             ),
-            const SizedBox(
-              height: 5,
+             SizedBox(
+              height: 5*rheight,
             ),
 
 //sports Tab bar
@@ -95,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       color: AppTheme.colors.appbar),
                   controller: _tabController,
                   isScrollable: true,
-                  labelPadding: EdgeInsets.symmetric(horizontal: 17),
+                  labelPadding: EdgeInsets.symmetric(horizontal: 17*rwidth),
                   tabs: [
                     Tab(
                       child: Column(
@@ -111,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             'FOOTBALL',
                             style: GoogleFonts.lora(
                                 color: AppTheme.colors.background,
-                                fontSize: 12),
+                                fontSize: 12*rtext),
                           ),
                         ],
                       ),
@@ -131,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             'BASKETBALL',
                             style: GoogleFonts.lora(
                                 color: AppTheme.colors.background,
-                                fontSize: 12),
+                                fontSize: 12*rtext),
                           ),
                         ],
                       ),
@@ -150,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             'BASEBALL',
                             style: GoogleFonts.lora(
                                 color: AppTheme.colors.background,
-                                fontSize: 12),
+                                fontSize: 12*rtext),
                           ),
                         ],
                       ),
@@ -169,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             'HOCKEY',
                             style: GoogleFonts.lora(
                                 color: AppTheme.colors.background,
-                                fontSize: 12),
+                                fontSize: 12*rtext),
                           ),
                         ],
                       ),
@@ -179,14 +182,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
             ),
 // Live matches Card
-            Container(
-              width: double.infinity,
-              height: 180,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: double.infinity,
+                height: 180*rheight,
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Stack(
                         children: [
                       InkWell(
                         onTap: () {
@@ -196,8 +199,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   builder: (_) => LiveStreaming()));
                         },
                         child: Container(
-                          width: 80,
-                          height: 150,
+                          width: 80*rwidth,
+                          height: 150*rheight,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
@@ -208,8 +211,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Container(
-                          width: 40,
-                          height: 20,
+                          width: 40*rwidth,
+                          height: 20*rheight,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(8),
@@ -218,17 +221,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             child: Text(
                               'LIVE',
                               style: GoogleFonts.lora(
-                                  fontSize: 10,
+                                  fontSize: 10*rtext,
                                   color: AppTheme.colors.background),
                             ),
                           ),
                         ),
                       ),
                     ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(children: [
+                    Stack(children: [
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -237,8 +237,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   builder: (_) => LiveStreaming()));
                         },
                         child: Container(
-                          width: 80,
-                          height: 150,
+                          width: 80*rwidth,
+                          height: 150*rheight,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
@@ -259,17 +259,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             child: Text(
                               'LIVE',
                               style: GoogleFonts.lora(
-                                  fontSize: 10,
+                                  fontSize: 10*rtext,
                                   color: AppTheme.colors.background),
                             ),
                           ),
                         ),
                       ),
                     ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(children: [
+                    Stack(children: [
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -278,8 +275,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   builder: (_) => LiveStreaming()));
                         },
                         child: Container(
-                          width: 80,
-                          height: 150,
+                          width: 80*rwidth,
+                          height: 150*rheight,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
@@ -290,8 +287,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Container(
-                          width: 40,
-                          height: 20,
+                          width: 40*rwidth,
+                          height: 20*rheight,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(8),
@@ -300,17 +297,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             child: Text(
                               'LIVE',
                               style: GoogleFonts.lora(
-                                  fontSize: 10,
+                                  fontSize: 10*rtext,
                                   color: AppTheme.colors.background),
                             ),
                           ),
                         ),
                       ),
                     ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(children: [
+                    Stack(children: [
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -319,8 +313,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   builder: (_) => LiveStreaming()));
                         },
                         child: Container(
-                          width: 80,
-                          height: 150,
+                          width: 80*rwidth,
+                          height: 150*rheight,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
@@ -331,8 +325,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Container(
-                          width: 40,
-                          height: 20,
+                          width: 40*rwidth,
+                          height: 20*rheight,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(8),
@@ -341,15 +335,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             child: Text(
                               'LIVE',
                               style: GoogleFonts.lora(
-                                  fontSize: 10,
+                                  fontSize: 10*rtext,
                                   color: AppTheme.colors.background),
                             ),
                           ),
                         ),
                       ),
                     ]),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             //tab bar view
@@ -405,8 +399,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
-                                                const SizedBox(
-                                                  width: 200,
+                                                 SizedBox(
+                                                  width: 200*rwidth,
                                                 ),
                                                 Text(
                                                   'Football',
@@ -474,8 +468,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
-                                                const SizedBox(
-                                                  width: 200,
+                                                 SizedBox(
+                                                  width: 200*rwidth,
                                                 ),
                                                 Text(
                                                   'BasketBall',
@@ -543,8 +537,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
-                                                const SizedBox(
-                                                  width: 200,
+                                                SizedBox(
+                                                  width: 200*rwidth,
                                                 ),
                                                 Text(
                                                   'Baseball',
@@ -612,8 +606,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
-                                                const SizedBox(
-                                                  width: 200,
+                                             SizedBox(
+                                                  width: 200*rwidth,
                                                 ),
                                                 Text(
                                                   'Hockey',
