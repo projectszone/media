@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:media/authentication/login_screen.dart';
+import 'package:media/authentication/verify_code.dart';
 import 'package:media/colors/app_theme.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -164,7 +165,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 20,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> VerifyCode()));
+                      },
                       child: Container(
                         width: 360,
                         height: 40,

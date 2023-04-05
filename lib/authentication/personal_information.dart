@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,55 +18,60 @@ class _PersonalInformationState extends State<PersonalInformation> {
 
   //image picker
   File? imageFile;
+  
 // image getting from gallery
   void getImageFromGallery() async {
     XFile? pickedFile = await ImagePicker()
         .pickImage(source: ImageSource.gallery, imageQuality: 60);
-    cropImageGallery(pickedFile!.path);
+    setState(() {
+      imageFile = File(pickedFile!.path);
+    });
+
+    // cropImageGallery(pickedFile!.path);
   }
-  void cropImageGallery(filePath) async {
-    CroppedFile? croppedImage = await ImageCropper().cropImage(
-        sourcePath: filePath,
-        maxHeight: 1080,
-        maxWidth: 1080,
-        uiSettings: [
-          AndroidUiSettings(
-              toolbarColor: AppTheme.colors.background,
-              toolbarWidgetColor: AppTheme.colors.text,
-              toolbarTitle: 'Edit Photo'),
-          IOSUiSettings(title: 'Edit Photo')
-        ]);
-    if (croppedImage != null) {
-      setState(() {
-        imageFile = File(croppedImage.path);
-      });
-    }
-  }
+// void  cropImageGallery(filePath) async {
+//     CroppedFile? croppedImage = await ImageCropper().cropImage(
+//         sourcePath: filePath,
+//         maxHeight: 1080,
+//         maxWidth: 1080,
+//         uiSettings: [
+//           AndroidUiSettings(
+//               toolbarColor: AppTheme.colors.background,
+//               toolbarWidgetColor: AppTheme.colors.text,
+//               toolbarTitle: 'Edit Photo'),
+//           IOSUiSettings(title: 'Edit Photo')
+//         ]);
+//     if (croppedImage != null) {
+//       setState(() {
+//         imageFile = File(croppedImage.path);
+//       });
+//     }
+//   }
 
 // image getting through camera
   void getImageFromCamera() async {
     XFile? pickedFile = await ImagePicker()
         .pickImage(source: ImageSource.camera, imageQuality: 60);
-    cropImageCamera(pickedFile!.path);
+    // cropImageCamera(pickedFile!.path);
   }
-  void cropImageCamera(filePath) async {
-    CroppedFile? croppedImage = await ImageCropper().cropImage(
-        sourcePath: filePath,
-        maxHeight: 1080,
-        maxWidth: 1080,
-        uiSettings: [
-          AndroidUiSettings(
-              toolbarColor: AppTheme.colors.background,
-              toolbarWidgetColor: AppTheme.colors.text,
-              toolbarTitle: 'Edit Photo'),
-          IOSUiSettings(title: 'Edit Photo')
-        ]);
-    if (croppedImage != null) {
-      setState(() {
-        imageFile = File(croppedImage.path);
-      });
-    }
-  }
+  // void cropImageCamera(filePath) async {
+  //   CroppedFile? croppedImage = await ImageCropper().cropImage(
+  //       sourcePath: filePath,
+  //       maxHeight: 1080,
+  //       maxWidth: 1080,
+  //       uiSettings: [
+  //         AndroidUiSettings(
+  //             toolbarColor: AppTheme.colors.background,
+  //             toolbarWidgetColor: AppTheme.colors.text,
+  //             toolbarTitle: 'Edit Photo'),
+  //         IOSUiSettings(title: 'Edit Photo')
+  //       ]);
+  //   if (croppedImage != null) {
+  //     setState(() {
+  //       imageFile = File(croppedImage.path);
+  //     });
+  //   }
+  // }
 
   //controllers
   TextEditingController _nameController = TextEditingController();
@@ -198,13 +202,21 @@ const SizedBox(height: 10,),
 
 
                       },
-                      child: const Center(
-                        child:  CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          backgroundImage: AssetImage('images/person.jpeg'),
-                          radius: 45,
-                        ),
+                      child: imageFile != null
+                          ? Center(
+                            child: Container(
+                        height: 130,
+                        width: 130,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                              child: ClipOval(
+                                child: Image.file(
+                        imageFile!.absolute,
+                        fit: BoxFit.cover,
                       ),
+                              ),
+                            ),
+                          )
+                          : Center(child: ClipOval(child: const Image(image: AssetImage('images/person.jpeg',),height: 100,width: 100,)))
                     ),
 const SizedBox(
   height: 10,

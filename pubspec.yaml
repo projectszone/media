@@ -44,6 +44,7 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   intl: ^0.18.0
   percent_indicator: ^4.2.3
+  flutter_verification_code: ^1.1.6
 
 
 

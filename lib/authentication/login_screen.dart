@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:media/authentication/forget_password.dart';
+import 'package:media/authentication/verify_code.dart';
 import 'package:media/authentication/signup_screen.dart';
 import 'package:media/bottom_Navigation/bottom_navigation_screen.dart';
 import 'package:media/colors/app_theme.dart';
@@ -229,7 +230,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children:  [
 // google image
                           Image(
                               height: 100,
